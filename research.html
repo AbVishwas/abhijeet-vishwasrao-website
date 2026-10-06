@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research - Abhijeet Vishwasrao</title>
+  <meta name="description" content="Abhijeet Vishwasrao, PhD researcher at the University of Michigan: generative AI and latent foundation models for physics simulation.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/site.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand">Abhijeet Vishwasrao<small>Generative AI for physics simulation</small></div>
+  <nav class="nav" aria-label="Site">
+    <a href="index.html">Home</a>
+    <a href="research.html" aria-current="page">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="talks.html">Talks &amp; news</a>
+    <a href="assets/cv/Abhijeet-Vishwasrao-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    <a href="#" class="soon" aria-disabled="true">Beyond research</a>
+  </nav>
+  <div class="foot">
+    <div class="icons">
+      <a href="mailto:abvish@umich.edu">Email</a>
+      <a href="https://scholar.google.com/citations?user=ngj3lpwAAAAJ" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://github.com/AbVishwas" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/abhijeet-vishwasrao-356489185" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <button id="theme-toggle" class="theme-btn" type="button">Light mode</button>
+  </div>
+</aside>
+<main>
+
+<div class="wrap">
+<h1>Research</h1>
+<p>Four themes, all on the same question: how to make high-fidelity physics simulation cheap enough to use inside design loops and scientific exploration, without losing the physics that matters.</p>
+<div class="grid">
+  <div class="shelf"><h3>Sensing and reconstruction</h3><p>Diffusion priors that reconstruct full turbulent fields from a handful of sensors, and tell you where the sensors should go.</p>
+    <ul><li>Diff-SPORT, Nature Communications 2026 (<a href="https://arxiv.org/abs/2506.00214">arXiv</a>, <a href="https://github.com/VinuesaLAB-AI/Diff-SPORT">code</a>)</li><li>CTR Summer Program 2024, Stanford</li><li>Information-theoretic feature selection for spatial data, ESANN 2026</li></ul></div>
+  <div class="shelf"><h3>Generative flow control</h3><p>Moving reward information out of the RL policy and into generative-model inference.</p>
+    <ul><li>Policy-DRIFT, NeurIPS 2026 (<a href="https://arxiv.org/abs/2605.14022">arXiv</a>): 49% drag reduction in channel DNS at 37x less actuation energy than DRL</li><li>Deep RL for uniform cooling in quenching, IJNMHFF 2024</li></ul></div>
+  <div class="shelf"><h3>Latent foundation models</h3><p>Compact, explicit latent representations of parametrized flows, with decoders that keep the fluctuations and predictors that generalize to unseen parameters.</p>
+    <ul><li>AeroJEPA, in NVIDIA PhysicsNeMo (<a href="https://arxiv.org/abs/2605.05586">arXiv</a>)</li><li>Two-stage Reynolds-decomposition decoder for wire-coil heat-exchanger flows, Argonne 2026</li><li>Fast flow matching for surrogates, L4DC 2026 (<a href="https://arxiv.org/abs/2511.04641">arXiv</a>)</li><li>Film-cooling prediction with RTX; automotive JEPA with CoreWeave and PhysicsX</li></ul></div>
+  <div class="shelf"><h3>Agents for simulation</h3><p>LLM-agent systems that plan, run and analyze simulations on top of the latent models.</p>
+    <ul><li>Agentic exploration of PDE spaces (<a href="https://arxiv.org/abs/2604.09584">arXiv</a>): 1,600+ configurations, non-obvious scaling laws recovered</li></ul></div>
+</div>
+<h2>Tools</h2>
+<p class="muted">Nek5000 and NekRS, OpenFOAM, Cimlib, Basilisk; PyTorch and NVIDIA PhysicsNeMo; diffusion (EDM), flow matching, VAEs, JEPA, deep RL, LLM agents; multi-GPU training on HPC clusters in the EU and the US.</p>
+</div>
+</main>
+</body>
+</html>
