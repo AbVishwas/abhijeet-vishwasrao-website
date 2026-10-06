@@ -31,6 +31,30 @@
       if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('visible');});return;}
       var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.1});
       els.forEach(function(e){io.observe(e);});
+      setupFocusZoom(tl); setupLightbox(tl);
     }).catch(function(){tl.innerHTML='<p class="muted">Timeline could not be loaded.</p>';});
+  }
+  // scroll-linked focus: the figure nearest the viewport centre is scaled up, the others sit back
+  function setupFocusZoom(tl){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var figs=Array.prototype.slice.call(tl.querySelectorAll('.tl-fig')), ticking=false, current=null;
+    function update(){
+      ticking=false; var mid=window.innerHeight*0.5, best=null, bestD=Infinity;
+      figs.forEach(function(f){var r=f.getBoundingClientRect(); if(r.bottom<0||r.top>window.innerHeight) return; var d=Math.abs((r.top+r.bottom)/2-mid); if(d<bestD){bestD=d;best=f;}});
+      if(best!==current){ if(current) current.classList.remove('focus'); if(best) best.classList.add('focus'); current=best; }
+    }
+    function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); update();
+  }
+  // click a figure to see it large; Esc or click closes
+  function setupLightbox(tl){
+    var lb=document.createElement('div'); lb.className='lightbox'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true');
+    lb.innerHTML='<figure><img alt=""><figcaption></figcaption></figure>'; document.body.appendChild(lb);
+    var img=lb.querySelector('img'), cap=lb.querySelector('figcaption');
+    function close(){ lb.classList.remove('open'); img.src=''; }
+    lb.addEventListener('click',close); document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+    tl.addEventListener('click',function(e){ var t=e.target; if(t.tagName!=='IMG'||!t.closest('.tl-fig')) return;
+      var item=t.closest('.tl-item'); var title=item?item.querySelector('h3').textContent:'';
+      img.src=t.src; img.alt=t.alt; cap.textContent=title+(t.alt?' — '+t.alt:''); lb.classList.add('open'); });
   }
 })();
