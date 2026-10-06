@@ -5,7 +5,8 @@ Personal website, served by GitHub Pages from `main` (root). Plain HTML, CSS and
 - `index.html` home: intro card over a header band, then the scroll-revealed timeline built from `data/timeline.json`
 - `research.html`, `publications.html`, `talks.html`: the themed shelves, the full publication list, talks / honors / news
 - `css/style.css` one stylesheet; dark theme is the default, light via the toggle (`data-theme`, remembered in localStorage)
-- `js/site.js` theme toggle, timeline rendering and IntersectionObserver reveal (respects reduced motion; degrades to static)
+- `js/site.js` theme toggle, timeline rendering, IntersectionObserver reveal, scroll-linked figure focus, lightbox (reduced motion respected; degrades to static)
+- Cache busting: the pages load `css/style.css?v=N` and `js/site.js?v=N`. GitHub Pages caches for 10 minutes and browsers longer; bump N in all four pages whenever the CSS or JS changes (`sed -i 's/?v=3/?v=4/' *.html`).
 - `assets/img/` web-sized figures from my papers; `assets/cv/` a copy of the one-page CV from writing-room
 
 Linked into `writing-room` as the submodule `personal/website/`: edit, commit and push here first, then bump the
