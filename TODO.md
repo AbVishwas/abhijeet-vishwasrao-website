@@ -14,6 +14,16 @@ https://abvishwas.github.io/abhijeet-vishwasrao-website/ ; edit here, push, then
 - [ ] Accent colour (teal now), intro length, names of the four research themes on the Research page
 - [ ] Address: keep the project URL, rename the repo to abvishwas.github.io for a root address, or a custom domain
 
+## Visitor counter / analytics (A.V., 2026-10-07)
+
+GitHub Pages is static, so counting needs a third-party service. Options, in the order I would consider them:
+- [ ] GoatCounter (free for personal sites, one script tag, no cookies, GDPR-friendly; dashboard can be public, and it
+      offers a visible counter widget for the page). Needs an account at goatcounter.com.
+- [ ] Cloudflare Web Analytics (free, one script tag, no cookies; dashboard only, no visible counter). Needs a Cloudflare account.
+- [ ] Visible "hit counter" badges from free APIs (hits.sh, counterapi): zero setup but unreliable and easily inflated; only
+      if a visible number on the page matters more than accuracy.
+- [ ] Decide: visible counter on the page, private dashboard, or both. Then add the snippet to all four pages (bump ?v=).
+
 ## Content sync
 
 - [ ] Keep the intro, timeline.json and the pages in step with writing-room/personal/curriculum-vitae/master.md
